@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SYndr — Hghend street fashion brand </title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
+  <title>SYndr — High-end Street Fashion brand</title>
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
     * {
       margin: 0;
       padding: 0;
@@ -14,35 +16,36 @@
     }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      background-color: #fafafa;
       color: #111;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
       width: 100%;
       text-align: center;
-      padding: 80px 20px 40px;
-      border-bottom: 1px solid #e6e6e6;
+      padding: 100px 20px 40px;
     }
 
-    h1 {
-      font-size: 4rem;
-      letter-spacing: 6px;
-      text-transform: uppercase;
-      font-weight: 600;
+    .logo img {
+      width: 240px;
+      height: auto;
+      border: 1px solid #111;
+      padding: 30px 50px;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    p.tagline {
-      font-size: 1.1rem;
-      color: #555;
-      margin-top: 12px;
-      letter-spacing: 2px;
+    .logo img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(0,0,0,0.1);
     }
 
     section {
@@ -52,38 +55,44 @@
       padding: 0 20px;
     }
 
-    .about, .lookbook, .contact {
-      margin-bottom: 100px;
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
       text-align: center;
+      margin-bottom: 25px;
+      color: #000;
     }
 
     .about p {
       font-size: 1rem;
-      line-height: 1.8;
-      color: #444;
-      max-width: 700px;
-      margin: 20px auto;
+      line-height: 1.9;
+      color: #333;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .lookbook-images {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 24px;
       justify-content: center;
       margin-top: 40px;
     }
 
     .lookbook-images img {
-      width: 300px;
-      height: 400px;
+      width: 310px;
+      height: 430px;
       object-fit: cover;
-      border-radius: 12px;
-      transition: all 0.3s ease;
+      border-radius: 10px;
+      filter: grayscale(10%);
+      transition: all 0.4s ease;
     }
 
     .lookbook-images img:hover {
-      filter: grayscale(100%);
-      transform: scale(1.02);
+      filter: grayscale(0%);
+      transform: scale(1.03);
     }
 
     footer {
@@ -91,49 +100,60 @@
       color: #fff;
       width: 100%;
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px;
       font-size: 0.9rem;
       letter-spacing: 1px;
+      margin-top: 80px;
     }
 
     footer a {
-      color: #aaa;
+      color: #ccc;
       text-decoration: none;
-      margin: 0 10px;
+      margin: 0 12px;
     }
 
     footer a:hover {
       color: #fff;
     }
+
+    @media (max-width: 768px) {
+      .lookbook-images img {
+        width: 90%;
+        height: auto;
+      }
+      header {
+        padding: 60px 20px 20px;
+      }
+      .logo img {
+        width: 200px;
+        padding: 20px 40px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>SYndr</h1>
-    <p class="tagline">Highend street clothes fashion brand</p>
+    <div class="logo">
+      <img src="images/syndr_white_logo.png" alt="SYndr logo">
+    </div>
   </header>
 
   <section class="about">
     <h2>About</h2>
     <p>
-      SYndr는 현대 스트릿 감성과 하이엔드 무드를 결합한 의류 브랜드입니다.<br>
-      심플함 속의 디테일, 여백 속의 긴장감을 통해 독창적인 감각을 표현합니다.
+      SYndr는 현대 스트릿 감성과 하이엔드 무드를 결합한 패션 브랜드입니다.<br>
+      여백과 균형 속에서 절제된 디테일로 새로운 미학을 제시합니다.
     </p>
   </section>
 
   <section class="lookbook">
     <h2>Lookbook</h2>
     <div class="lookbook-images">
-      <img src="file:///C:/Users/1/Pictures/syndr%20white%20logo.png" alt="Look 1">
-      <img src="https://images.unsplash.com/photo-1542060748-10c28b62716c?auto=format&fit=crop&w=800&q=80" alt="Look 2">
-      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80" alt="Look 3">
+      <img src="https://images.unsplash.com/photo-1542060748-10c28b62716c?auto=format&fit=crop&w=800&q=80" alt="Look 1">
+      <img src="https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=800&q=80" alt="Look 2">
+      <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?auto=format&fit=crop&w=800&q=80" alt="Look 3">
     </div>
-  </section>
-
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>Instagram — <a href="https://instagram.com" target="_blank">@syndr_official</a></p>
-    <p>Email — officialsyndr@gmail.com</p>
   </section>
 
   <footer>
@@ -142,4 +162,3 @@
   </footer>
 </body>
 </html>
-
