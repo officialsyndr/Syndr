@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SYndr — Take a break then...</title>
+  <title>SYndr — High-end Street Fashion</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap');
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap');
 
     * {
       margin: 0;
@@ -13,48 +14,115 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
       color: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
+      overflow-x: hidden;
+      transition: background-color 0.5s ease, color 0.5s ease;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 60px;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #111;
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0%;
+      height: 1px;
+      background-color: #111;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     header {
-      width: 100%;
       text-align: center;
-      padding: 80px 20px 40px;
-      border-bottom: 1px solid #e6e6e6;
+      padding: 180px 20px 100px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
     }
 
     h1 {
+      font-family: 'Playfair Display', serif;
       font-size: 4rem;
       letter-spacing: 6px;
-      text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     p.tagline {
+      font-family: 'Inter', sans-serif;
       font-size: 1.1rem;
-      color: #555;
+      color: #444;
       margin-top: 12px;
       letter-spacing: 2px;
     }
 
     section {
-      width: 100%;
       max-width: 1000px;
-      margin: 80px auto;
+      margin: 120px auto;
       padding: 0 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
     }
 
-    .about, .lookbook, .contact {
-      margin-bottom: 100px;
-      text-align: center;
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
     }
 
     .about p {
@@ -78,7 +146,7 @@
       height: 400px;
       object-fit: cover;
       border-radius: 12px;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease;
     }
 
     .lookbook-images img:hover {
@@ -89,9 +157,8 @@
     footer {
       background-color: #111;
       color: #fff;
-      width: 100%;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       font-size: 0.9rem;
       letter-spacing: 1px;
     }
@@ -100,20 +167,38 @@
       color: #aaa;
       text-decoration: none;
       margin: 0 10px;
+      transition: color 0.3s ease;
     }
 
     footer a:hover {
       color: #fff;
     }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
+
 <body>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">SYndr</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#lookbook">Lookbook</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
     <h1>SYndr</h1>
-    <p class="tagline">High-end street fashion brand</p>
+    <p class="tagline">High-end Street Fashion Brand</p>
   </header>
 
-  <section class="about">
+  <section id="about" class="about">
     <h2>About</h2>
     <p>
       SYndr는 현대 스트릿 감성과 하이엔드 무드를 결합한 의류 브랜드입니다.<br>
@@ -121,7 +206,7 @@
     </p>
   </section>
 
-  <section class="lookbook">
+  <section id="lookbook" class="lookbook">
     <h2>Lookbook</h2>
     <div class="lookbook-images">
       <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" alt="Look 1">
@@ -130,16 +215,34 @@
     </div>
   </section>
 
-  <section class="contact">
+  <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Instagram — <a href="https://instagram.com" target="_blank">@syndr_official</a></p>
-    <p>Email — officialsyndr@gmail.com</p>
+    <p>Instagram — <a href="https://instagram.com/syndr_official" target="_blank">@syndr_official</a></p>
+    <p>Email — <a href="mailto:officialsyndr@gmail.com">officialsyndr@gmail.com</a></p>
   </section>
 
   <footer>
     © 2025 SYndr. All Rights Reserved.  
     <a href="#">Privacy</a> | <a href="#">Terms</a>
   </footer>
+
+  <script>
+    // Scroll Fade-In Effect
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
+
 
